@@ -21,7 +21,7 @@ jobs:
             echo "Error: SAP_AI_CORE_CLIENT_SECRET secret is not configured"
             exit 1
           fi
-      - uses: ncryptedV1/ai-reviewer@latest
+      - uses: ncryptedV1/ai-reviewer@main
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           LLM_MODEL: "anthropic--claude-3.7-sonnet"
