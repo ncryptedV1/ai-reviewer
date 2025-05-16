@@ -91,21 +91,21 @@ if (process.env.NODE_ENV !== "test") {
 }
 
 // Export the instance or a function to create one for tests
-export default process.env.NODE_ENV === "test"
+export default process.env.NODE_ENV === 'test'
   ? {
       // Default values for tests
-      githubToken: "mock-token",
-      llmApiKey: "mock-api-key",
-      llmModel: "mock-model",
-      llmProvider: "mock-provider",
-      styleGuideRules: "",
+      githubToken: 'mock-token',
+      llmApiKey: 'mock-api-key',
+      llmModel: 'mock-model',
+      llmProvider: 'mock-provider',
+      styleGuideRules: '',
       githubApiUrl: 'https://api.github.com',
       githubServerUrl: 'https://github.com',
-      sapAiCoreClientId: "mock-client-id",
-      sapAiCoreClientSecret: "mock-client-secret",
-      sapAiCoreTokenUrl: "mock-token-url",
-      sapAiCoreBaseUrl: "mock-base-url",
-      sapAiResourceGroup: "default",
+      sapAiCoreClientId: 'mock-client-id',
+      sapAiCoreClientSecret: 'mock-client-secret',
+      sapAiCoreTokenUrl: 'mock-token-url',
+      sapAiCoreBaseUrl: 'mock-base-url',
+      sapAiResourceGroup: 'default',
       loadInputs: jest.fn(),
     }
   : configInstance!;
