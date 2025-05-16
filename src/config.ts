@@ -6,6 +6,8 @@ export class Config {
   public llmProvider: string;
   public githubToken: string | undefined;
   public styleGuideRules: string | undefined;
+  public githubApiUrl: string;
+  public githubServerUrl: string;
 
   public sapAiCoreClientId: string | undefined;
   public sapAiCoreClientSecret: string | undefined;
@@ -34,6 +36,12 @@ export class Config {
       this.llmProvider = "ai-sdk";
       console.log(`Using default LLM_PROVIDER '${this.llmProvider}'`);
     }
+
+    // GitHub Enterprise Server support
+    this.githubApiUrl =
+      process.env.GITHUB_API_URL || getInput('github_api_url') || 'https://api.github.com';
+    this.githubServerUrl =
+      process.env.GITHUB_SERVER_URL || getInput('github_server_url') || 'https://github.com';
 
     if (!process.env.DEBUG) {
       return;
@@ -91,6 +99,8 @@ export default process.env.NODE_ENV === "test"
       llmModel: "mock-model",
       llmProvider: "mock-provider",
       styleGuideRules: "",
+      githubApiUrl: 'https://api.github.com',
+      githubServerUrl: 'https://github.com',
       sapAiCoreClientId: "mock-client-id",
       sapAiCoreClientSecret: "mock-client-secret",
       sapAiCoreTokenUrl: "mock-token-url",
